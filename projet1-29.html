@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - 29</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="radio" v-model="choix" value="click" checked><label>Click</label>
+        <input type="radio" v-model="choix" value="dblclick" ><label>Double-Click</label>
+        <p>
+            <img src="https://blog.hubspot.com/hs-fs/hubfs/HTMLandCSS-fi.jpg?width=595&height=400&name=HTMLandCSS-fi.jpg"
+             :width="taille" @[choix]="modifierTaille"
+            >
+        </p>
+    </div>
+        
+    <script>
+        app = Vue.createApp({
+            data() { 
+                return {
+                    choix:'click',
+                    taille: 200
+                }
+            },
+            methods: {
+                modifierTaille() {
+                    this.taille = this.taille * 1.1
+                }
+            }
+        })
+        let vm = app.mount('#app')
+
+    </script>
+</body>
+</html>
