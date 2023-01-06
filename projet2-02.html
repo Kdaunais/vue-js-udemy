@@ -9,12 +9,17 @@
 </head>
 <body>
     <div id="app">
-       
+       <bonjour-loc/>
     </div>
         
     <script>
+        const BonjourLocal = {
+            template:'<div>Le composant local dit bonjour :).</div>'
+        }
         app = Vue.createApp({
-            
+            components: {
+                'bonjour-loc': BonjourLocal
+            }
         })
         app.mount('#app')
     </script>

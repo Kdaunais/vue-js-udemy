@@ -9,12 +9,18 @@
 </head>
 <body>
     <div id="app">
-       
+       <bonjour prenom="Natasha"></bonjour>
+       <bonjour prenom="Joanie"></bonjour>
+       <bonjour prenom="Gloria"></bonjour>
     </div>
         
     <script>
         app = Vue.createApp({
             
+        })
+        app.component('bonjour', {
+            template: '<div>Bonjour {{prenom}}</div>',
+            props: ['prenom']
         })
         app.mount('#app')
     </script>

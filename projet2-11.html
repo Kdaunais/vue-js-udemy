@@ -9,14 +9,26 @@
 </head>
 <body>
     <div id="app">
-       
-    </div>
-        
-    <script>
-        app = Vue.createApp({
-            
-        })
-        app.mount('#app')
-    </script>
+        <rnd-loc max="20" ></rnd-loc>
+     </div>
+         
+     <script>
+         const RndLocal = {
+             data() {
+                 return {
+                     nombre: Math.floor(Math.random()*this.max+1)
+                 }
+             },
+             template: '<div>{{nombre}}</div>',
+             props: ['max']
+         }
+ 
+         app = Vue.createApp({
+             components: {
+                 'rnd-loc' : RndLocal
+             }
+         })
+         app.mount('#app')
+     </script>
 </body>
 </html>

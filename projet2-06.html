@@ -9,14 +9,31 @@
 </head>
 <body>
     <div id="app">
-       
-    </div>
-        
-    <script>
-        app = Vue.createApp({
-            
-        })
-        app.mount('#app')
-    </script>
+        <rnd-loc/>
+     </div>
+         
+     <script>
+         const RndLocal = {
+             data() {
+                 return {
+                     nombre: Math.floor(Math.random()*100+1)
+                 }
+             },
+             methods: {
+                nouveau() {
+                    this.nombre = Math.floor(Math.random()*100+1)
+                }
+             },
+             template: '<div>{{nombre}}</div>\
+                        <button @click="nouveau">Nouveau</button>'
+         }
+ 
+         app = Vue.createApp({
+             components: {
+                 'rnd-loc' : RndLocal
+             }
+         })
+         app.mount('#app')
+     </script>
 </body>
 </html>

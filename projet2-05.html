@@ -9,13 +9,26 @@
 </head>
 <body>
     <div id="app">
-       
+       <cpt-loc></cpt-loc>
     </div>
         
     <script>
+        const CptLocal = {
+            data() {
+                return {
+                    nbClics: 0
+                }
+            },
+            template: '<button @click="nbClics++">{{nbClics}}</button>'
+        }
+
         app = Vue.createApp({
             
+            components: {
+                'cpt-loc' : CptLocal
+            }
         })
+
         app.mount('#app')
     </script>
 </body>

@@ -9,13 +9,24 @@
 </head>
 <body>
     <div id="app">
-       
+       <maj texte="texte à mettre en majuscules"></maj>
     </div>
         
     <script>
         app = Vue.createApp({
             
         })
+
+        app.component('maj', {
+            template: '<div>{{enMaj}}</div>',
+            props: ['texte'],
+            data() {
+                return {
+                    enMaj: this.texte.toUpperCase()
+                }
+            }
+        })
+
         app.mount('#app')
     </script>
 </body>

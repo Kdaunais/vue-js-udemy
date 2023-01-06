@@ -9,13 +9,16 @@
 </head>
 <body>
     <div id="app">
-       
+       <bonjour/>
     </div>
         
     <script>
         app = Vue.createApp({
             
         })
+        app.component('bonjour', {
+            template: '<div>Bonjour</div>' 
+        });
         app.mount('#app')
     </script>
 </body>
