@@ -9,12 +9,25 @@
 </head>
 <body>
     <div id="app">
-       
+       <art titre="Titre de l'article">
+        <template #texte>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis dolorem beatae eius molestias tempora voluptatibus iusto atque magni tempore delectus labore, ut qui veritatis vero optio nulla deserunt culpa cupiditate!</p>
+        </template>
+        <p>ce texte est intégré dans le slot default</p>
+    </art>
     </div>
         
     <script>
         app = Vue.createApp({
             
+        })
+        app.component('art', {
+            template: `<div>
+                    <h2>{{titre}}</h2>
+                    <slot name="texte"></slot>
+                    <slot name="default"></slot>
+                </div>`,
+            props: ['titre']
         })
         app.mount('#app')
     </script>

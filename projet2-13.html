@@ -9,12 +9,20 @@
 </head>
 <body>
     <div id="app">
-       
+       <bienvenue @coucou="disBonjour"></bienvenue>
     </div>
         
     <script>
         app = Vue.createApp({
-            
+
+            methods:{
+                disBonjour() {
+                    alert('Le parent dit bonjour')
+                }
+            }
+        })
+        app.component('bienvenue', {
+            template: '<button @click="$emit(\'coucou\')">Cliquez ici</button>'
         })
         app.mount('#app')
     </script>

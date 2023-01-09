@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,45 @@
     <title>Projet 2 - 14</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
     <div id="app">
-       
+        {{total}}
+        <compteur @incremente="plusUn"></compteur>
+        <compteur @incremente="plusUn"></compteur>
+        <compteur @incremente="plusUn"></compteur>
     </div>
-        
+
     <script>
         app = Vue.createApp({
-            
+            data() {
+                return {
+                    total: 0
+                }
+            },
+            methods: {
+                plusUn() {
+                    this.total++;
+                }
+            }
+        })
+
+        app.component('compteur', {
+            data() {
+                return {
+                    valeur: 0
+                }
+            },
+            methods: {
+                ajouteUn() {
+                    this.valeur++;
+                    this.$emit('incremente');
+                }
+            },
+            template: '<button @click="ajouteUn">{{valeur}}</button>'
         })
         app.mount('#app')
     </script>
 </body>
+
 </html>
