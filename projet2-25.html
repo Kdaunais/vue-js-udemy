@@ -9,12 +9,18 @@
 </head>
 <body>
     <div id="app">
-       
+       {{contact}}
     </div>
         
     <script>
         app = Vue.createApp({
-            
+            data() { 
+                return {
+                    email: 'test@test.com',
+                    phone: '0123456789',
+                    contact: 'mail : ' + this.email + 'tel: ' + this.phone
+                }
+            }
         })
         app.mount('#app')
     </script>
